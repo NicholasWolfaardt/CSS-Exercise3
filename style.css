@@ -1,0 +1,286 @@
+body, html {
+  height: 100%;
+}
+
+.hero-image{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/heroimage.jpg");
+
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+    @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  gap: 16px;
+}
+
+header{
+  color: white;
+  background-color: aqua;
+}
+
+.card{
+  width: 300px;
+  height: 200px;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+.card p{
+  color: #0ff;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 30%,
+    rgba(0, 255, 255, 0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,250,250,0.5);
+}
+
+.card:hover::before{
+  opacity: 1;
+  transform: rotate(-45deg)
+  translate(100%);
+}
+img{
+  width: 250px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 5px 5px 0 0;
+}
+
+.cart{
+  margin-top: auto; 
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+button:hover{
+  background-color: #317734;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #111;
+  color: #fff;
+}
+.navbar .logo { color: #fff; font-weight: 700; text-decoration: none; }
+.nav-links { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; }
+.nav-links a { color: #ddd; text-decoration: none; }
+.nav-links a:hover { color: #fff; }
+
+/* Simple About, Contact and FAQ CSS made by AI to fill out Nav */
+
+.about { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+.about-section { margin-bottom: 2rem; }
+.about-section h2 { margin-bottom: 0.5rem; }
+.about-list { padding-left: 1.25rem; line-height: 1.7; }
+
+.contact {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 700px) {
+  .contact { grid-template-columns: 1fr; }
+}
+.contact-form { display: flex; flex-direction: column; gap: 0.5rem; }
+.contact-form label { font-weight: 600; margin-top: 0.5rem; }
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+}
+.contact-form button {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background: #2e7d32;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.contact-form button:hover { background: #256428; }
+
+.faq { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; }
+.faq-section { margin-bottom: 2.5rem; }
+.faq-section h2 { margin-bottom: 1rem; }
+
+.faq-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background: #fff;
+  overflow: hidden;
+}
+.faq-item summary {
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.25rem;
+  color: #2e7d32;
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { background: #f5f5f5; }
+.faq-item p {
+  margin: 0;
+  padding: 0 1.25rem 1.25rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Used AI for a very specific loader idea in mind */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0d0d0d;
+  animation: loader-hide 0.4s ease 1.8s forwards;
+}
+@keyframes loader-hide {
+  to {opacity: 0; visibility: hidden; } 
+}
+
+.loader-o { display: inline-flex; width: 1.1em; height: 1.1em; align-items: center; justify-content: center; }
+.loader-spinner {
+  width: 0.85em; height: 0.85em;
+  border: 0.18em solid rgba(46, 125, 50, 0.25);
+  border-top-color: #4caf50;
+  border-radius: 50%;
+  animation: loader-spin 0.8s linear infinite;
+}
+@keyframes loader-spin { to { transform: rotate(360deg);}}
+
+.loader-bar {
+  width: min(320px, 70vw); height: 18px; padding: 3px;
+  border: 3px solid #4caf50; border-radius: 4px;
+  background: #111; box-shadow: 0 0 12px rgba(76, 175, 80, 0
+  .5);
+}
+.loader-bar-fill {
+  height: 100%; width: 0; border-radius: 2px;
+  background: repeating-linear-gradient(90deg, #4caf50 0 12px, #2e7d32 12px 16px);
+  animation: loader-fill 1.8s linear forwards;
+}
+@keyframes loader-fill { to {width: 100% } }
+
+/* No AI from this point on */
+
+.loader-word{
+  color: white;
+}
+
+@media(prefers-reduced-motion: no-preference) {
+  @view-transition{
+    navigation: auto;
+    types: wipe-up;
+  }
+}
+
+html::active-view-transition-type(wipe-up)::view-transition-old(root) {
+animation: wipe-out 1.4s ease forwards;
+}
+
+html:active-view-transition-type(wipe-up)::view-transition-new(root) {
+  animation: wipe-in 1.4s ease forwards;
+}
+
+@keyframes wipe-out {
+  from  {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset (0 0 0 100%);
+  }
+}
+
+@keyframes wipe-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.holographic-contain{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+}

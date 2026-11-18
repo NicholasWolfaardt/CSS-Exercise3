@@ -28,7 +28,7 @@
     <div class="hero-text">
       <h1>Welcome to the Gaming Store</h1>
       <p>Do you want to level up your gear?</p>
-      <button onclick="window.location.href='product.html'">LEVEL UP!!</button>
+      <button class="pulse-button" onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">LEVEL UP!!</button>
     </div>
   </div>
   <nav class="navbar">
@@ -38,7 +38,7 @@
       <li><a href="./faq.html">FAQ</a></li>
     </ul>
   </nav>
-  <main class="grid">
+  <main class="grid" id="products">
     <div class="holographic-container">
       <div class="card">
         <img src="https://m.media-amazon.com/images/I/71amTCrzOdL._AC_SX679_.jpg" alt="Ghast Headphones">
